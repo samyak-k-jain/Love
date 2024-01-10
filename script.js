@@ -1,7 +1,7 @@
 // Get the "No" button element
 const noButton = document.getElementById("no-button");
 
-// Add a mouseover event listener to move the "No" button randomly
+// Add a click event listener to move the "No" button randomly
 noButton.addEventListener("mouseover", () => {
   const x = Math.floor(Math.random() * window.innerWidth);
   const y = Math.floor(Math.random() * window.innerHeight);
@@ -23,11 +23,11 @@ noButton.addEventListener("mouseover", () => {
 // Get the "Yes" button element
 const yesButton = document.getElementById("yes-button");
 
-// Add a click event listener to create confetti
+// Add a click event listener to create flowers
 yesButton.addEventListener("click", () => {
   
-var confettiElement = document.getElementById('confetti-canvas');
-var confettiSettings = { target: confettiElement, max: 729, size: 1, animate: true, props: ['circle', 'square', 'triangle', 'line'], colors: [[165,104,246],[230,61,135],[0,199,228],[253,214,126]], clock: 25, rotate: true,start_from_edge: true, respawn: true };
+var flowersElement = document.getElementById('confetti-canvas');
+var flowersSettings = { target: flowersElement, max: 729, size: 1, animate: true, props: ['circle', 'square', 'triangle', 'line'], colors: [[165,104,246],[230,61,135],[0,199,228],[253,214,126]], clock: 25, rotate: true,start_from_edge: true, respawn: true };
 
 yesButton.style.display = "none";
 noButton.style.display = "none";
@@ -37,51 +37,53 @@ var header = document.getElementById("main");
 header.style.display = "none";
 gif.style.display = "none";
 
-//change the style of the confetti canvas
-confettiElement.style.position = "absolute";
-confettiElement.style.top = "0";
-confettiElement.style.left = "0";
-confettiElement.style.width = "100%";
-confettiElement.style.height = "100%";
-confettiElement.style.zIndex = "1000";
+//change the style of the flowers canvas
+flowersElement.style.position = "absolute";
+flowersElement.style.top = "0";
+flowersElement.style.left = "0";
+flowersElement.style.width = "100%";
+flowersElement.style.height = "100%";
+flowersElement.style.zIndex = "1000";
 
 
-var confetti = new ConfettiGenerator(confettiSettings);
+var flowers = new ConfettiGenerator(flowersSettings);
 
-confetti.render();
+flowers.render();
 
-let infoParagraph = document.createElement("p");
-  infoParagraph.innerText = "You are a Sweet girl🥰 and I am a sweet Boy😁 and now we are friends❤️.\n So Now onwards we are Girlfriend and Boyfriend";
-  infoParagraph.style.fontSize = "1rem";
-  infoParagraph.style.fontWeight = "bold";
-  infoParagraph.style.textAlign = "center";
-  infoParagraph.style.position = "absolute";
-  infoParagraph.style.top = "40%";
-  infoParagraph.style.left = "50%";
-  infoParagraph.style.transform = "translate(-50%, -50%)";
-  document.body.appendChild(infoParagraph);
 
- let p = document.createElement("p");
- p.innerText = "Congratulations🎉🥳😘 \n You made the perfect choice 🎉 \n😉";
-  p.style.fontSize = "2rem";
-  p.style.fontWeight = "bold";
-  p.style.textAlign = "center";
-  p.style.position = "absolute";
-  p.style.top = "50%";
-  p.style.left = "50%";
-  p.style.transform = "translate(-50%, -50%)";
-  document.body.appendChild(p);
+let nikSam = document.createElement("p");
+nikSam.innerText = "You are a sweet girl 🥰 and I am a sweet boy 😁 ❤️ You accepted my proposal, so from now on,\nwe are girlfriend and boyfriend.";
+nikSam.style.fontSize = "1rem";
+nikSam.style.fontWeight = "bold";
+nikSam.style.textAlign = "center";
+nikSam.style.position = "absolute";
+nikSam.style.top = "30%";  
+nikSam.style.left = "50%";
+nikSam.style.transform = "translate(-50%, -50%)";
+document.body.appendChild(nikSam);
 
-let additionalStatement = document.createElement("p");
-  additionalStatement.innerText = "I am calling you in 2 minutes,🩷 I will tell you where where will be our first date \nI love you so much Nikita";
-  additionalStatement.style.fontSize = "1.5rem";
-  additionalStatement.style.fontWeight = "bold";
-  additionalStatement.style.textAlign = "center";
-  additionalStatement.style.position = "absolute";
-  additionalStatement.style.top = "60%";
-  additionalStatement.style.left = "50%";
-  additionalStatement.style.transform = "translate(-50%, -50%)";
-  document.body.appendChild(additionalStatement);
+
+let nik = document.createElement("p");
+nik.innerText = "Congratulations🎉🥳😘\nYou made the perfect choice 🎉🥳";
+nik.style.fontSize = "2rem";
+nik.style.fontWeight = "bold";
+nik.style.textAlign = "center";
+nik.style.position = "absolute";
+nik.style.top = "40%";  
+nik.style.left = "50%";
+nik.style.transform = "translate(-50%, -50%)";
+document.body.appendChild(nik);
+
+let sam = document.createElement("p");
+sam.innerText = "I am calling you in 2 minutes😁🩷 \n I will tell you where will we go for our first date.\nI love you so much, My Sweetu Nik❤️😘";
+sam.style.fontSize = "1.5rem";
+sam.style.fontWeight = "bold";
+sam.style.textAlign = "center";
+sam.style.position = "absolute";
+sam.style.top = "50%";  
+sam.style.left = "50%";
+sam.style.transform = "translate(-50%, -50%)";
+document.body.appendChild(sam);
 
   let gifImage = document.createElement("img");
   gifImage.src = "love.gif";
@@ -89,7 +91,7 @@ let additionalStatement = document.createElement("p");
   gifImage.style.width = "100%";
   gifImage.style.maxWidth = "500px"; 
   gifImage.style.display = "block";
-  gifImage.style.marginTop = "20px";
+  gifImage.style.marginTop = "100px";
   gifImage.style.margin = "20px auto";
   document.body.appendChild(gifImage);
 
@@ -99,7 +101,6 @@ let additionalStatement = document.createElement("p");
   gifAbove.style.width = "10%";
   gifAbove.style.display = "block";  
   gifAbove.style.marginLeft = "800px"; 
-  gifAbove.style.marginBottom = "20px"; 
   document.body.insertBefore(gifAbove, document.body.firstChild);
 
   let gifLeft = document.createElement("img");
