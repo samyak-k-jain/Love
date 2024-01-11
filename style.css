@@ -124,8 +124,6 @@ button:hover {
   }
 }
 
-
-
 @media screen and (max-width: 768px) {
   header {
     font-size: 1.5rem;
@@ -141,4 +139,22 @@ button:hover {
     margin: 0.5rem;
     font-size: 1rem;
   }
+}
+
+
+@keyframes fallingAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(100vh - 2rem));
+  }
+}
+
+.falling-text {
+  position: absolute;
+  color: red; /* You can customize the color */
+  font-size: 2rem;
+  font-weight: bold;
+  animation: fallingAnimation 5s linear infinite;
 }
