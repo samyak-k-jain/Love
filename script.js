@@ -20,6 +20,9 @@ noButton.addEventListener("mouseover", () => {
   noButton.style.top = `${adjustedY}px`;
 });
 
+
+
+
 // Get the "Yes" button element
 const yesButton = document.getElementById("yes-button");
 
@@ -45,11 +48,19 @@ yesButton.addEventListener("click", () => {
   flowersElement.style.height = "100%";
   flowersElement.style.zIndex = "1000";
 
-
   var flowers = new ConfettiGenerator(flowersSettings);
-
   flowers.render();
 
+  for (let i = 0; i < 10; i++) {
+    createFallingText(i);
+  }
+
+  // Restart the animation after 2 seconds (adjust the time as needed)
+  setTimeout(() => {
+    for (let i = 0; i < 100; i++) {
+      createFallingText(i);
+    }
+  }, 2000);
 
   let nikSam = document.createElement("p");
   nikSam.innerText = "You are a sweet girl 🥰 and I am a sweet boy 😁 ❤️ You accepted my proposal, so from now on,\nwe are girlfriend and boyfriend.";
@@ -123,28 +134,38 @@ yesButton.addEventListener("click", () => {
 
 });
 
-//add a WhatsApp button
-function createWhatsAppButton() {
-let whatsappButton = document.createElement("button");
-console.log("Creating WhatsApp button");
-  whatsappButton.id = "whatsappButton";
-  whatsappButton.innerText = "Chat with Sam on WhatsApp";
-  whatsappButton.style.color = "grey";
-  whatsappButton.style.border = "none";
-  whatsappButton.style.cursor = "default";
-  whatsappButton.style.position = "fixed";
-  whatsappButton.style.bottom = "10px";
-  whatsappButton.style.left = "49%";
-  whatsappButton.style.transform = "translate(-50%, 0)";
-  whatsappButton.addEventListener("click", redirectToWhatsApp);
-
-  document.body.appendChild(whatsappButton);
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
-// Function to handle the button click and redirect to WhatsApp link
-function redirectToWhatsApp() {
-  console.log("Redirecting to WhatsApp");
-  window.location.href = "https://wa.me/+917340411075";
-}
+function createFallingText(index) {
+  setTimeout(() => {
+    const fallingText = document.createElement("p");
+    fallingText.innerText = "I Love You So much My Nik😘";
+    fallingText.classList.add("falling-text");
 
-createWhatsAppButton();
+    // Calculate spacing based on the index
+    const spacing = 30; // Adjust this value for the desired spacing
+    const initialPosition = spacing * index;
+
+    // Set initial position at the top of the page with spacing
+    fallingText.style.top = `-${initialPosition}px`;
+    fallingText.style.left = Math.random() * window.innerWidth + "px";
+
+    // Apply random color to the falling text
+    fallingText.style.color = getRandomColor();
+
+    // Append the falling text to the body
+    document.body.appendChild(fallingText);
+
+    // Remove the falling text element when the animation ends
+    fallingText.addEventListener("animationiteration", () => {
+      document.body.removeChild(fallingText);
+    });
+  }, 2000 * index); // Add a delay of 2 seconds for each falling text
+}
